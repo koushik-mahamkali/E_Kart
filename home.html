@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Albatross</title>
+    <style>
+        :root {
+        --base-color: hsl(200 60% 50%);
+        }
+        .nav-bar{
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 20px;
+            padding : 10px 20px;
+            background-color:cyan
+        }
+        .location button{
+            display: flex;
+            flex-direction: column;
+            color: antiquewhite;
+            font-size: 15px;
+            border:none;
+            cursor: pointer;
+        }
+        .location strong{
+            font-size: 14px;
+            color: black;
+        }
+        body{
+            background-color: hsl(from var(--base-color) h s 80%);
+            margin:0;
+        }
+        #address{
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .s-bar{
+            flex:1;
+            max-width:500px;
+        }
+        .s-bar form{
+            display:flex;
+            align-items: center;
+            background-color: cornsilk;
+            border-radius : 6px;
+            overflow : hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+        .s-bar input{
+            flex :1;
+            padding: 12px 12px;
+            font-size:14px;
+            border:none;
+            outline:none;
+        }
+        .s-bar input::placeholder{
+            color: crimson;
+        }
+        .s-bar button{
+            padding: 12px 14px;
+            border: none;
+            background-color: forestgreen;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .s-bar button:hover{
+            background-color: brown;
+        }
+        .profile a{
+            border : 0;
+            display : flex;
+            flex-direction: row;
+            padding : 10px;
+            color:#000000;
+            text-decoration: none;
+            font-size : 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="home.html">
+            <img src="images/logo.png" alt="logo" width="85px" style="border-radius:9px">
+        </a>
+        <div class= "location">
+            <button onclick="sif()">
+                <strong><img src="images/location.png" width="13px"> Deliver to</strong>
+                <strong id="address"></strong>
+            </button>
+        </div>
+        <div class="s-bar">
+            <form action="search.html" method="get">  
+                <input type="text" name="q" placeholder="search...">
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div class="profile">
+            <a href="profile.html">
+                <strong><img src="images/pfp.png" alt="pfp" width="14px"></strong>
+                <strong id="login"></strong>
+            </a>
+        </div>
+        <div class="cart">
+            <a href="cart.html"><img src="images/cart.png" width="30px"></a>
+        </div>
+    </div>
+    <script>
+        const city = "vijayawada";                //update this placeholder
+        const pincode = "520007";
+        const addressE1 = document.getElementById("address");
+        if(city && pincode){
+            addressE1.innerText = `${city} ${pincode}`;
+        }
+        else{
+            addressE1.innerText = "select Address";
+        }
+        const u_name = "koushik";               //update this placeholder
+        const e = document.getElementById("login");
+        if(u_name){
+            e.innerText = `${u_name}`;
+        }
+        else{
+            e.innerText = "login";
+        }
+    </script>
+</body>
+</html>
