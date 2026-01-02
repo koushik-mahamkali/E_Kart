@@ -1,8 +1,23 @@
 :root {
     --base-color: hsl(200 60% 50%);
+    --bg-light: hsl(from var(--base-color) h s 80%);
+    --footer-bg: #0d1117;
+    --footer-text: #c9d1d9;
+    --footer-muted: #8b949e;
+}
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
 }
 body {
     margin: 0;
-    background-color: hsl(from var(--base-color) h s 80%);
+    background-color: var(--bg-light);
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    flex: 1;
 }
