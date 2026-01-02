@@ -1,0 +1,8 @@
+:root {
+    --base-color: hsl(200 60% 50%);
+}
+body {
+    margin: 0;
+    background-color: hsl(from var(--base-color) h s 80%);
+    font-family: Arial, sans-serif;
+}
