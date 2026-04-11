@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Albatross - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/productCard.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <center>
+    <main class="login-container">
+        <form class="login" id="loginForm">
+            <h2>Login</h2>
+            <p>
+                Don't have an account?
+                <a href="signup.html">Sign up</a>
+            </p>
+            <div class="input-group">
+                <label for="Uname">Username</label>
+                <input 
+                    type="text" 
+                    id="Uname" 
+                    name="username"
+                    placeholder="Enter username"
+                    required
+                >
+            </div>
+            <div class="input-group">
+                <label for="Pwd">Password</label>
+                <input 
+                    type="password" 
+                    id="Pwd"
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    </center>
+    <div id="footer" style="margin-top:435px"></div>
+    <script src="js/pages/login.js"></script>
+    <script src="js/common/navbar.js"></script>
+    <script>
+        fetch("components/navbar.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("navbar").innerHTML = html;
+                return fetch("modals/address-modal.html");
+            })
+            .then(res => res.text())
+            .then(html => {
+                document.body.insertAdjacentHTML("beforeend", html);
+                if (typeof initNavbar === "function") initNavbar();
+            })
+            .catch(err => console.error("Navbar load error:", err));
+        fetch("components/footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").innerHTML = html;
+            })
+            .catch(err => console.error("Footer load error:", err));
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const username = document.getElementById("Uname").value.trim();
+            const password = document.getElementById("Pwd").value.trim();
+            if (!username || !password) {
+                alert("Please fill all fields");
+                return;
+            }
+            if (typeof login === "function") {
+                login(username, password);
+            }
+        });
+    </script>
+</body>
+</html>

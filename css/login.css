@@ -1,0 +1,15 @@
+.login-container{
+    height: 300px;
+    width:400px;
+    border:2px solid #e3dcdc;
+    text-align:center;
+    align-items: center;
+    background-color: rgb(230, 222, 232);
+    margin-left: 100px;
+    margin-top: 200px;
+    border-radius: 8px;
+    padding: 16px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
